@@ -12,8 +12,12 @@ import org.apache.logging.log4j.Logger;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Stream;
+
+import static java.lang.StrictMath.round;
 
 public class reponseAllCurrency {
 
@@ -39,15 +43,21 @@ public class reponseAllCurrency {
         Double currencyPrice = 1.0;
 
         LOG.debug("Prepare response object");
+
+
+
         for (Datum str : currencyInfoObject.getData()){
             if(str.getSymbol().equals(currencyName)){
                 returnedJson.setSource(currencyName);
                 currencyPrice = str.getQuote().getUSD().getPrice();
             }
+        }
+
+        for (Datum str : currencyInfoObject.getData()) {
             if(!str.getSymbol().equals(currencyName)) {
                 Cryptocurrency cryptoCurrency = new Cryptocurrency();
                 cryptoCurrency.setName(str.getSymbol());
-                Double currentRate = str.getQuote().getUSD().getPrice() / currencyPrice;
+                Double currentRate = currencyPrice / str.getQuote().getUSD().getPrice();
                 cryptoCurrency.setRate(currentRate);
                 rates.add(cryptoCurrency);
             }
