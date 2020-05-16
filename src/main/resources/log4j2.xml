@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+    <Properties>
+        <Property name="log-path">C:\tmp\log</Property>
+        <Property name="appenderPatternLayout">[%d{HH:mm:ss.SSS}][%p][%c{1}.%M][%X{userName}] %msg%n</Property>
+    </Properties>
+    <Appenders>
+        <!-- All -->
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="${appenderPatternLayout}" />
+        </Console>
+        <RollingFile name="RollingFile" fileName="${log-path}/CryptocurrencyCantor.log"
+                     filePattern="${log-path}/CryptocurrencyCantor-%d{yyyy-MM-dd}-%i.log.zip">
+            <PatternLayout pattern="${appenderPatternLayout}" />
+            <Policies>
+                <SizeBasedTriggeringPolicy size="100 MB" />
+            </Policies>
+        </RollingFile>
+    </Appenders>
+    <Loggers>
+        <Root level="debug">
+            <AppenderRef ref="Console" />
+            <AppenderRef ref="RollingFile" />
+        </Root>
+    </Loggers>
+</Configuration>
