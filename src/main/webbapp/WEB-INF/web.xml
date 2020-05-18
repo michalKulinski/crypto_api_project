@@ -5,21 +5,4 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          metadata-complete="false"
          version="3.1">
-
-<!--    <display-name>CryptocurrencyCantor</display-name>-->
-<!--    <description>Display current exchange and exchange to other currencies</description>-->
-
-
-<!--    <servlet>-->
-<!--        <servlet-name>CurrenciesServlet</servlet-name>-->
-<!--        <servlet-class>servlets.CurrenciesServlet</servlet-class>-->
-<!--    </servlet>-->
-
-
-<!--    <servlet-mapping>-->
-<!--        <servlet-name>Servlet</servlet-name>-->
-<!--        <url-pattern>/currencies</url-pattern>-->
-<!--    </servlet-mapping>-->
-
-
 </web-app>
