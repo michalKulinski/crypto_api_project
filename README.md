@@ -3,7 +3,9 @@
 Application uses pro.coinmarketcap.com API.
 First of all you should log in to above service and get your API Key.
 
-Api Key should be put to the ApiConfig.class (in the future it will be changed to application.properties)
+Api Key should be put to the application.properties file
+
+api.key=<your_key>
 
 # How to start application
 
