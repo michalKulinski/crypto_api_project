@@ -7,9 +7,7 @@ import java.util.Properties;
 
 public class ApiConfig {
 
-    public static final String API_URL = "https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest";
-
-    public static String getApiKey() {
+    public static String getApiProp(String property) {
         String rootPath = Thread.currentThread().getContextClassLoader().getResource("").getPath();
         String appConfigPath = rootPath + "application.properties";
 
@@ -20,8 +18,10 @@ public class ApiConfig {
             e.printStackTrace();
         }
 
-        return appProps.getProperty("apiKey");
+        return appProps.getProperty(property);
     }
+
+
 }
 
 

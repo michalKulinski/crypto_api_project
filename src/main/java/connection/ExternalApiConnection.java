@@ -24,8 +24,8 @@ public class ExternalApiConnection {
 
         String response_content = "";
 
-        URIBuilder query = new URIBuilder(ApiConfig.API_URL);
-        query.addParameter("CMC_PRO_API_KEY", ApiConfig.getApiKey());
+        URIBuilder query = new URIBuilder(ApiConfig.getApiProp("api.url"));
+        query.addParameter("CMC_PRO_API_KEY", ApiConfig.getApiProp("api.key"));
 
         CloseableHttpClient client = HttpClients.createDefault();
         HttpGet request = new HttpGet(query.build());
